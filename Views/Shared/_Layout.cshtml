@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — GameStop Inventory</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: #111 !important;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 500;
+        }
+
+            .navbar-brand span {
+                color: #e53e1a;
+            }
+
+        .nav-link {
+            color: #888 !important;
+        }
+
+            .nav-link:hover {
+                color: #fff !important;
+            }
+
+        .btn-danger {
+            background: #e53e1a !important;
+            border-color: #e53e1a !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <span>Game</span>Stop Inventory
+            </a>
+            <div class="navbar-nav ms-auto">
+                @if (Context.Session.GetString("Username") != null)
+                {
+                    <a class="nav-link" asp-controller="Games" asp-action="Index">Inventory</a>
+                    <a class="nav-link" asp-controller="Cart" asp-action="Index">
+                        Cart (@(Context.Session.GetString("Cart") != null
+                                            ? System.Text.Json.JsonSerializer
+                                            .Deserialize<List<GameStopInventory.Models.CartItem>>(
+                                            Context.Session.GetString("Cart")!)!
+                                            .Sum(c => c.Quantity)
+                                            : 0))
+                </a>
+                <a class="nav-link" asp-controller="Account" asp-action="Logout">
+                    Sign out (@Context.Session.GetString("Username"))
+                </a>
+                                }
+            </div>
+        </div>
+    </nav>
+    <main>
+        @RenderBody()
+    </main>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

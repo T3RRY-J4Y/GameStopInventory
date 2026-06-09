@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div style="min-height:90vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 2rem;">
+    <p style="font-size:12px; color:#666; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1.5rem;">
+        GameStop Inventory
+    </p>
+    <h1 style="font-size:42px; font-weight:500; line-height:1.15; margin-bottom:0.75rem;">
+        Manage your<br>
+        <span style="color:#e53e1a;">game catalogue</span><br>
+        from anywhere.
+    </h1>
+    <p style="color:#666; font-size:15px; margin-bottom:2.5rem;">
+        Cloud-powered inventory for the modern storefront.
+    </p>
+    <div style="display:flex; gap:12px;">
+        <a asp-controller="Account" asp-action="Login"
+           style="background:#e53e1a; color:#fff; padding:12px 32px; border-radius:8px; text-decoration:none; font-size:14px; font-weight:500;">
+            Sign in
+        </a>
+        <a asp-controller="Account" asp-action="Register"
+           style="background:transparent; color:#fff; border:1px solid #444; padding:12px 32px; border-radius:8px; text-decoration:none; font-size:14px; font-weight:500;">
+            Create account
+        </a>
+    </div>
+</div>

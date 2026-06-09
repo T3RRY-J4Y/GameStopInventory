@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Sign in";
+}
+
+<div style="min-height:90vh; display:flex; align-items:center; justify-content:center; padding:2rem;">
+    <div style="width:100%; max-width:360px;">
+        <a asp-controller="Home" asp-action="Index"
+           style="display:inline-flex; align-items:center; gap:6px; color:#666; text-decoration:none; font-size:13px; margin-bottom:1.5rem;">
+            ← Back
+        </a>
+        <div style="background:#1a1a1a; border:1px solid #2a2a2a; border-radius:12px; padding:2rem;">
+            <h2 style="color:#fff; font-size:20px; font-weight:500; margin-bottom:0.25rem;">Welcome back</h2>
+            <p style="color:#666; font-size:13px; margin-bottom:1.5rem;">Sign in to your account</p>
+
+            @if (ViewBag.Error != null)
+            {
+                <div style="background:#2a1515; border:1px solid #4a2020; color:#ff6b6b; padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:1rem;">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form method="post">
+                <div style="margin-bottom:1rem;">
+                    <label style="display:block; font-size:12px; color:#888; margin-bottom:6px;">Username</label>
+                    <input name="username" placeholder="your_username" required
+                           style="width:100%; background:#111; border:1px solid #2a2a2a; color:#fff; padding:10px 12px; border-radius:8px; font-size:14px;" />
+                </div>
+                <div style="margin-bottom:1.25rem;">
+                    <label style="display:block; font-size:12px; color:#888; margin-bottom:6px;">Password</label>
+                    <input name="password" type="password" placeholder="••••••••" required
+                           style="width:100%; background:#111; border:1px solid #2a2a2a; color:#fff; padding:10px 12px; border-radius:8px; font-size:14px;" />
+                </div>
+                <button type="submit"
+                        style="width:100%; background:#e53e1a; color:#fff; border:none; padding:11px; border-radius:8px; font-size:14px; font-weight:500; cursor:pointer;">
+                    Sign in
+                </button>
+            </form>
+            <p style="text-align:center; margin-top:1rem; font-size:13px; color:#666;">
+                No account?
+                <a asp-action="Register" style="color:#e53e1a; text-decoration:none;">Register here</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model GameStopInventory.Models.Game
+
+@{
+    ViewData["Title"] = "Delete game";
+}
+
+<div style="min-height:90vh; display:flex; align-items:center; justify-content:center; padding:2rem;">
+    <div style="width:100%; max-width:400px; text-align:center;">
+        <div style="background:#1a1a1a; border:1px solid #2a1515; border-radius:12px; padding:2.5rem 2rem;">
+            <div style="width:48px; height:48px; background:#2a1515; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem;">
+                <span style="color:#e53e1a; font-size:22px;">!</span>
+            </div>
+            <h2 style="color:#fff; font-size:20px; font-weight:500; margin-bottom:0.5rem;">Delete game</h2>
+            <p style="color:#666; font-size:14px; margin-bottom:2rem;">
+                Are you sure you want to remove <strong style="color:#fff;">@Model.Title</strong> from inventory? This cannot be undone.
+            </p>
+            <form method="post" style="display:flex; gap:10px;">
+                <a asp-action="Index"
+                   style="flex:1; text-align:center; background:transparent; border:1px solid #333; color:#888; padding:11px; border-radius:8px; text-decoration:none; font-size:14px;">
+                    Cancel
+                </a>
+                <button type="submit"
+                        style="flex:1; background:#e53e1a; color:#fff; border:none; padding:11px; border-radius:8px; font-size:14px; font-weight:500; cursor:pointer;">
+                    Delete
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
